@@ -1,0 +1,19 @@
+datasets==4.4.2
+einops==0.4.0
+huggingface_hub==1.2.3
+matplotlib==3.10.8
+numpy @ file:///croot/numpy_and_numpy_base_1695830428084/work/dist/numpy-1.26.0-cp310-cp310-linux_x86_64.whl#sha256=fc2732718bc9e06a7b702492cb4f5afffe9671083930452d894377bf563464a3
+pandas==2.3.3
+patool==4.0.1
+pmdarima==2.1.1
+ptflops==0.7.5
+pytorch-wavelets @ git+https://github.com/fbcotter/pytorch_wavelets.git@9a0c507f04f43c5397e384bb6be8340169b2fd9a
+scikit_learn==1.7.2
+scipy==1.15.3
+seaborn==0.13.2
+sktime==0.40.1
+statsmodels==0.14.6
+sympy @ file:///croot/sympy_1668202399572/work
+sympy==1.11.1
+torch==2.1.0
+tqdm==4.67.1
