@@ -2,12 +2,12 @@ if [ ! -d "./logs" ]; then
   mkdir ./logs
 fi
 
-if [ ! -d "./logs/LightTrend" ]; then
-  mkdir ./logs/LightTrend
+if [ ! -d "./logs/LightNorm" ]; then
+  mkdir ./logs/LightNorm
 fi
 
-if [ ! -d "./logs/LightTrend/DLinear" ]; then
-  mkdir ./logs/LightTrend/DLinear
+if [ ! -d "./logs/LightNorm/DLinear" ]; then
+  mkdir ./logs/LightNorm/DLinear
 fi
 
 gpu=0
@@ -41,7 +41,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
             --itr 1 \
             --t_ff $t_ff \
             --station_lr $station_lr \
-            --use_mlp $use_mlp >logs/LightTrend/$model_name/elc_$pred_len.log
+            --use_mlp $use_mlp >logs/LightNorm/$model_name/elc_$pred_len.log
           done
 
         for pred_len in 96 192 336 720; do
@@ -67,7 +67,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
             --t_ff $t_ff \
             --learning_rate $learning_rate \
             --station_lr $station_lr \
-            --use_mlp $use_mlp >logs/LightTrend/$model_name/wea_$pred_len.log
+            --use_mlp $use_mlp >logs/LightNorm/$model_name/wea_$pred_len.log
           done
 
         for pred_len in 96 192 336 720; do
@@ -92,7 +92,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
             --learning_rate $learning_rate \
             --t_ff $t_ff \
             --station_lr $station_lr \
-            --use_mlp $use_mlp >logs/LightTrend/$model_name/tra_$pred_len.log
+            --use_mlp $use_mlp >logs/LightNorm/$model_name/tra_$pred_len.log
           done
 
         # for pred_len in 96 192 336 720; do
@@ -117,7 +117,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
         #     --itr 1 \
         #     --station_lr $station_lr \
         #     --learning_rate $learning_rate \
-        #     --use_mlp $use_mlp >logs/LightTrend/$model_name/eh1_$pred_len.log
+        #     --use_mlp $use_mlp >logs/LightNorm/$model_name/eh1_$pred_len.log
         #   done
 
         # for pred_len in 96 192 336 720; do
@@ -142,7 +142,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
         #     --t_ff $t_ff \
         #     --station_lr $station_lr \
         #     --learning_rate $learning_rate \
-        #     --use_mlp $use_mlp >logs/LightTrend/$model_name/eh2_$pred_len.log
+        #     --use_mlp $use_mlp >logs/LightNorm/$model_name/eh2_$pred_len.log
         #   done
 
         # for pred_len in 96 192 336 720; do
@@ -168,7 +168,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
         #     --t_ff $t_ff \
         #     --station_lr $station_lr \
         #     --learning_rate $learning_rate \
-        #     --use_mlp $use_mlp >logs/LightTrend/$model_name/em1_$pred_len.log
+        #     --use_mlp $use_mlp >logs/LightNorm/$model_name/em1_$pred_len.log
         #   done
 
         # for pred_len in 96 192 336 720; do
@@ -194,7 +194,7 @@ for learning_rate in 0.001 0.00005 0.0001 0.0005; do
         #     --t_ff $t_ff \
         #     --station_lr $station_lr \
         #     --learning_rate $learning_rate \
-        #     --use_mlp $use_mlp >logs/LightTrend/$model_name/em2_$pred_len.log
+        #     --use_mlp $use_mlp >logs/LightNorm/$model_name/em2_$pred_len.log
         #   done
       done
     done
