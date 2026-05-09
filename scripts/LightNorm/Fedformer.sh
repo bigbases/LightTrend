@@ -2,12 +2,12 @@ if [ ! -d "./logs" ]; then
   mkdir ./logs
 fi
 
-if [ ! -d "./logs/LightTrend" ]; then
-  mkdir ./logs/LightTrend
+if [ ! -d "./logs/LightNorm" ]; then
+  mkdir ./logs/LightNorm
 fi
 
-if [ ! -d "./logs/LightTrend/FEDformer" ]; then
-  mkdir ./logs/LightTrend/FEDformer
+if [ ! -d "./logs/LightNorm/FEDformer" ]; then
+  mkdir ./logs/LightNorm/FEDformer
 fi
 
 seq_len=96
@@ -43,7 +43,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --c_out 862 \
           --des 'Exp' \
           --learning_rate $learning_rate \
-          --itr 1 >logs/LightTrend/$model_name/traf_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/traf_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -68,7 +68,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --c_out 321 \
           --learning_rate $learning_rate \
           --des 'Exp' \
-          --itr 1 >logs/LightTrend/$model_name/elec_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/elec_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -93,7 +93,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --c_out 21 \
           --learning_rate $learning_rate \
           --des 'Exp' \
-          --itr 1 >logs/LightTrend/$model_name/wea_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/wea_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -118,7 +118,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --c_out 7 \
           --learning_rate $learning_rate \
           --des 'Exp' \
-          --itr 1 >logs/LightTrend/$model_name/ETTh1_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/ETTh1_$pred_len.log
         done
 
       for pred_len in 720 96 192 336; do
@@ -144,7 +144,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --des 'Exp' \
           --gpu 0 \
-          --itr 1 >logs/LightTrend/$model_name/ETTh2_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/ETTh2_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -170,7 +170,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --des 'Exp' \
           --gpu 0 \
-          --itr 1 >logs/LightTrend/$model_name/ETTm1_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/ETTm1_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -195,7 +195,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --c_out 7 \
           --learning_rate $learning_rate \
           --des 'Exp' \
-          --itr 1 >logs/LightTrend/$model_name/ETTm2_$pred_len.log
+          --itr 1 >logs/LightNorm/$model_name/ETTm2_$pred_len.log
         done
     done
   done
