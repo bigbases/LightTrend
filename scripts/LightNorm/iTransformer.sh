@@ -2,12 +2,12 @@ if [ ! -d "./logs" ]; then
   mkdir ./logs
 fi
 
-if [ ! -d "./logs/LightTrend" ]; then
-  mkdir ./logs/LightTrend
+if [ ! -d "./logs/LightNorm" ]; then
+  mkdir ./logs/LightNorm
 fi
 
-if [ ! -d "./logs/LightTrend/iTransformer" ]; then
-  mkdir ./logs/LightTrend/iTransformer
+if [ ! -d "./logs/LightNorm/iTransformer" ]; then
+  mkdir ./logs/LightNorm/iTransformer
 fi
 
 gpu=0
@@ -45,7 +45,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --itr 1 \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/elc_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/elc_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -74,7 +74,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --station_lr $station_lr \
           --use_mlp $use_mlp \
           --learning_rate $learning_rate \
-          --batch_size 16 >logs/LightTrend/$model_name/tra_$pred_len.log
+          --batch_size 16 >logs/LightNorm/$model_name/tra_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -102,7 +102,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/wea_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/wea_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -130,7 +130,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/eh1_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/eh1_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -158,7 +158,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/eh2_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/eh2_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -186,7 +186,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/em1_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/em1_$pred_len.log
         done
 
       for pred_len in 96 192 336 720; do
@@ -214,7 +214,7 @@ for station_lr in 0.0001 0.001 0.01; do
           --learning_rate $learning_rate \
           --t_norm $t_norm \
           --station_lr $station_lr \
-          --use_mlp $use_mlp >logs/LightTrend/$model_name/em2_$pred_len.log
+          --use_mlp $use_mlp >logs/LightNorm/$model_name/em2_$pred_len.log
         done
 
     done
