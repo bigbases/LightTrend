@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import Autoformer, DLinear, FEDformer, iTransformer, PatchTST
+from models import Autoformer, DLinear, FEDformer, iTransformer
 from importlib import import_module
 from utils.tools import EarlyStopping, adjust_learning_rate, visual
 from utils.metrics import metric
@@ -66,7 +66,7 @@ class Exp_Main(Exp_Basic):
             'revin': 'RevIN',
             'san': 'SAN',
             'ddn': 'DDN',
-            'lt': 'LightTrend',
+            'lt': 'LightNorm',
         }[self.args.use_norm]
         station_mod = import_module(f'normalizers.{station_module_name}')
         self.station = station_mod.Model(self.args).to(self.device)
@@ -87,7 +87,6 @@ class Exp_Main(Exp_Basic):
             'Autoformer': Autoformer,
             'DLinear': DLinear,
             'iTransformer': iTransformer,
-            'PatchTST': PatchTST,
         }
         model = model_dict[self.args.model].Model(self.args).float()
         if self.args.use_multi_gpu and self.args.use_gpu:
